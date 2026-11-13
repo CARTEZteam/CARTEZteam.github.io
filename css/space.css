@@ -1,0 +1,48 @@
+/* Space environment behind the 2D map and the 3D globe (js/space.js). Purely decorative: never takes pointer events.
+   Layers inside #mapwrap: .space-bg (z 0: deep space, stars, Sun) < .map (z 1, Leaflet; an opaque plate under the
+   tiles hides the sky inside the map area) < .globe-layer (z 2) < legend, buttons, notes, cards (z >= 600). */
+.space-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; contain: strict; }
+.space-bg * { pointer-events: none; }
+.space-sky { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+/* the maps used to paint their own dark background; now the sky shows around the map */
+.mapwrap .map, .mapwrap .leaflet-container { background: transparent; }
+
+.space-tw { position: absolute; inset: 0; }
+.space-tw .tw { position: absolute; border-radius: 50%; background: var(--c); box-shadow: 0 0 4px 1px var(--c); opacity: .85;
+  animation: space-tw var(--d, 7s) ease-in-out var(--dl, 0s) infinite alternate; }
+@keyframes space-tw { from { opacity: .9; } to { opacity: var(--lo, .35); } }
+
+/* Sun: positioned by JS through transform (centre point); --r = disc radius */
+.space-sun { position: absolute; left: 0; top: 0; width: 0; height: 0; transition: transform 1.3s cubic-bezier(.45, 0, .2, 1), opacity .8s ease; }
+.space-disk { position: absolute; left: calc(var(--r) * -1); top: calc(var(--r) * -1); width: calc(var(--r) * 2); height: calc(var(--r) * 2);
+  border-radius: 50%; box-shadow: 0 0 calc(var(--r) * .35) calc(var(--r) * .08) rgba(255, 236, 200, .55); }
+.space-halo, .space-corona { position: absolute; left: calc(var(--r) * -7); top: calc(var(--r) * -7); width: calc(var(--r) * 14); height: calc(var(--r) * 14); border-radius: 50%; }
+.space-halo { --h: 232, 238, 255;
+  background: radial-gradient(closest-side, rgba(255, 250, 238, .55) 12%, rgba(var(--h), .2) 16%, rgba(var(--h), .085) 27%, rgba(var(--h), .035) 46%, rgba(var(--h), .012) 70%, rgba(var(--h), 0) 100%);
+  animation: space-breathe 11s ease-in-out infinite alternate; will-change: transform, opacity; }
+.space-bg[data-body="mars"] .space-halo { --h: 255, 228, 196; }
+@keyframes space-breathe { from { transform: scale(1); opacity: .88; } to { transform: scale(1.04); opacity: 1; } }
+/* very faint, slowly turning streaks of light around the disc */
+.space-corona { opacity: .13;
+  background: repeating-conic-gradient(from 0deg, rgba(255, 244, 220, .5) 0deg 2deg, rgba(255, 244, 220, 0) 5deg 13deg);
+  -webkit-mask-image: radial-gradient(closest-side, transparent 13%, #000 15%, rgba(0, 0, 0, .35) 30%, transparent 55%);
+  mask-image: radial-gradient(closest-side, transparent 13%, #000 15%, rgba(0, 0, 0, .35) 30%, transparent 55%);
+  animation: space-turn 240s linear infinite; will-change: transform; }
+@keyframes space-turn { to { transform: rotate(360deg); } }
+
+/* paused while the globe or the map moves (js/space.js motion()) */
+.space-bg.still .tw, .space-bg.still .space-halo, .space-bg.still .space-corona { animation-play-state: paused; }
+
+/* flat 2D map: the Sun is a smaller, quieter element in the corner */
+.space-bg[data-mode="2d"] .space-sun { opacity: .8; }
+.space-bg[data-mode="2d"] .space-halo { animation-duration: 14s; }
+.space-bg[data-mode="2d"] .space-corona { opacity: .14; }
+
+@media (pointer: coarse) {
+  .space-corona { animation: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .space-tw .tw, .space-halo, .space-corona { animation: none; }
+  .space-sun { transition: none; }
+}
