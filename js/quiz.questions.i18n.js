@@ -1,0 +1,197 @@
+/* Knowledge Quiz — question texts (English).
+ * Load AFTER js/i18n.js (adds flat keys to window.I18N.dict.en).
+ * Format per question id: [question, [o0 (correct), o1, o2, o3] | null for true/false, explanation]
+ * AUTHORING RULE: the first option is always the correct one; js/quiz.js shuffles options at runtime.
+ */
+(function () {
+  'use strict';
+
+  var Q = {};
+
+  /* ============================== ENGLISH ============================== */
+  Q.en = {
+    ap_a11_date: ['On what date did the Apollo 11 lunar module land on the Moon?',
+      ['20 July 1969', '16 July 1969', '19 November 1969', '11 December 1972'],
+      'Apollo 11 launched on 16 July 1969 and its lunar module Eagle landed on 20 July 1969. 19 November 1969 is the Apollo 12 landing date, 11 December 1972 the Apollo 17 landing date.'],
+    ap_eagle: ['What was the name of the Apollo 11 lunar module?',
+      ['Eagle', 'Columbia', 'Intrepid', 'Falcon'],
+      'The lunar module was Eagle. Columbia was the Apollo 11 command module, Intrepid the Apollo 12 lunar module and Falcon the Apollo 15 lunar module.'],
+    ap_mare: ['In which lunar “sea” (mare) did Apollo 11 land?',
+      ['Sea of Tranquility (Mare Tranquillitatis)', 'Ocean of Storms (Oceanus Procellarum)', 'Sea of Serenity (Mare Serenitatis)', 'Sea of Crises (Mare Crisium)'],
+      'Eagle touched down in the Sea of Tranquility; Neil Armstrong named the site “Tranquility Base”. Apollo 12 later landed in the Ocean of Storms.'],
+    ap_13: ['Which Apollo mission had to abandon its planned Moon landing after an oxygen tank exploded on the way?',
+      ['Apollo 13', 'Apollo 12', 'Apollo 14', 'Apollo 10'],
+      'In April 1970 an oxygen tank in Apollo 13’s service module exploded. The landing was cancelled; the crew swung around the Moon and returned safely to Earth on 17 April 1970.'],
+    ap_walkers: ['How many astronauts walked on the Moon during the Apollo program?',
+      ['12', '6', '18', '24'],
+      'Six Apollo missions landed (Apollo 11, 12, 14, 15, 16 and 17). On each, two astronauts took the lunar module down while the third stayed in lunar orbit: 6 × 2 = 12.'],
+    ap_last: ['Which mission was the last Apollo landing on the Moon?',
+      ['Apollo 17', 'Apollo 15', 'Apollo 16', 'Apollo 14'],
+      'Apollo 17 (December 1972) was the Apollo program’s last lunar landing mission. Eugene Cernan and Harrison Schmitt explored the Taurus-Littrow valley.'],
+    ap_lrv_tf: ['True or false: the Apollo 11 astronauts drove a Lunar Roving Vehicle on the Moon.', null,
+      'False. The Lunar Roving Vehicle was first used on Apollo 15 in 1971, then on Apollo 16 and 17. Armstrong and Aldrin explored on foot.'],
+    ap_schmitt: ['Who was the first scientist — a geologist — to walk on the Moon?',
+      ['Harrison Schmitt', 'Eugene Cernan', 'James Irwin', 'Charles Duke'],
+      'Geologist Harrison “Jack” Schmitt landed with Apollo 17 in December 1972. NASA describes him as the first scientist and the twelfth person to step on the Moon.'],
+
+    lu_ch3: ['In 2023 India’s Chandrayaan-3 lander Vikram touched down in which region of the Moon?',
+      ['Near the lunar south pole', 'In the Sea of Tranquility', 'In the Ocean of Storms', 'Near the lunar north pole'],
+      'Vikram landed on 23 August 2023 at about 69° S — the first landing near the lunar south pole, a region of interest because of possible water ice.'],
+    lu_luna2: ['Which spacecraft was the first human-made object to reach the surface of the Moon (1959)?',
+      ['Luna 2', 'Luna 9', 'Ranger 7', 'Surveyor 1'],
+      'The Soviet Luna 2 struck the Moon on 14 September 1959. It was a hard impact, not a landing.'],
+    lu_luna9: ['Which spacecraft made the first soft landing on the Moon, in February 1966?',
+      ['Luna 9', 'Surveyor 1', 'Luna 2', 'Ranger 7'],
+      'Luna 9 landed on 3 February 1966 in the Ocean of Storms and sent back the first images from the lunar surface. NASA’s Surveyor 1 followed in June 1966.'],
+    lu_change4: ['Which mission made the first soft landing on the far side of the Moon?',
+      ['Chang’e 4', 'Chang’e 3', 'Luna 9', 'Chandrayaan-3'],
+      'China’s Chang’e 4 landed on 3 January 2019 in Von Kármán crater, inside the South Pole–Aitken basin, and released the Yutu-2 rover.'],
+    lu_luna16: ['Which mission was the first robotic probe to bring lunar soil back to Earth (1970)?',
+      ['Luna 16', 'Luna 20', 'Luna 24', 'Chang’e 5'],
+      'Luna 16 landed in Mare Fecunditatis on 20 September 1970 and returned a small soil sample. Luna 20 (1972) and Luna 24 (1976) were later Soviet sample-return missions.'],
+    lu_luna17: ['Which spacecraft delivered Lunokhod 1, the first remotely driven rover on the Moon?',
+      ['Luna 17', 'Luna 16', 'Luna 21', 'Luna 24'],
+      'Luna 17 landed in Mare Imbrium on 17 November 1970 and released Lunokhod 1, driven by operators on Earth. Luna 21 carried Lunokhod 2 in 1973.'],
+
+    me_ingenuity: ['What kind of vehicle was Ingenuity, which arrived on Mars with Perseverance?',
+      ['A helicopter', 'A rover', 'An orbiter', 'A sample-return capsule'],
+      'Ingenuity was a small helicopter. On 19 April 2021 it made the first powered, controlled flight on another planet and went on to make 72 flights.'],
+    me_mariner4: ['Which spacecraft made the first successful flyby of Mars and returned the first close-up pictures of its surface (1965)?',
+      ['Mariner 4', 'Mariner 9', 'Viking 1', 'Mars 3'],
+      'NASA’s Mariner 4 flew past Mars on 14–15 July 1965. Its images were the first pictures of another planet returned from deep space.'],
+    me_viking1: ['Which NASA lander touched down on Mars on 20 July 1976 — exactly seven years after Apollo 11?',
+      ['Viking 1', 'Viking 2', 'Mars Pathfinder', 'Phoenix'],
+      'Viking 1 landed in Chryse Planitia on 20 July 1976. Viking 2 followed on 3 September 1976 in Utopia Planitia.'],
+    me_insight: ['What was the main scientific goal of NASA’s InSight lander (2018–2022)?',
+      ['Studying the interior of Mars with a seismometer and a heat-flow probe', 'Searching for fossils with a deep drill', 'Producing oxygen from the atmosphere', 'Collecting rock samples for return to Earth'],
+      'InSight landed in Elysium Planitia on 26 November 2018. Its robotic arm placed a seismometer and a heat-flow probe on the ground to study the planet’s interior. The mission ended on 15 December 2022.'],
+    me_mariner9: ['Which spacecraft became the first to orbit another planet when it reached Mars in November 1971?',
+      ['Mariner 9', 'Mars 3', 'Mars 2', 'Viking 1'],
+      'Mariner 9 entered Mars orbit on 14 November 1971. The Soviet Mars 2 and Mars 3 orbiters arrived shortly afterwards, in late November and early December 1971.'],
+    me_mars3: ['Which mission achieved the first soft landing on Mars in December 1971, although its lander fell silent within seconds?',
+      ['Mars 3', 'Mars 2', 'Viking 1', 'Mariner 9'],
+      'The Soviet Mars 3 lander touched down on 2 December 1971 and stopped transmitting after about 14.5 seconds. The Mars 2 lander had crashed a few days earlier.'],
+
+    ro_sojourner: ['Which was the first robotic rover to drive on Mars (1997)?',
+      ['Sojourner', 'Spirit', 'Opportunity', 'Curiosity'],
+      'Mars Pathfinder landed in Ares Vallis on 4 July 1997 and delivered Sojourner, the first robotic rover on Mars.'],
+    ro_persev: ['In which crater did the Perseverance rover land in February 2021?',
+      ['Jezero Crater', 'Gale Crater', 'Gusev Crater', 'Endeavour Crater'],
+      'Perseverance landed in Jezero Crater on 18 February 2021. Jezero once held a lake and a river delta — a promising place to look for signs of ancient microbial life.'],
+    ro_curiosity: ['Where did the Curiosity rover land in August 2012?',
+      ['Gale Crater', 'Jezero Crater', 'Meridiani Planum', 'Utopia Planitia'],
+      'Curiosity landed in Gale Crater in August 2012 and has been exploring the crater ever since.'],
+    ro_opp_storm: ['What cut off contact with the Opportunity rover in June 2018?',
+      ['A planet-wide dust storm that starved its solar panels', 'A wheel stuck in soft sand', 'A meteorite impact', 'Failure of a nuclear power source'],
+      'A severe Mars-wide dust storm blocked sunlight to Opportunity’s solar panels; the last signal came on 10 June 2018. NASA declared the mission complete on 13 February 2019.'],
+    ro_opp_dist: ['Roughly how far did Opportunity drive on Mars in total?',
+      ['About 45 km', 'About 8 km', 'About 21 km', 'About 100 km'],
+      'Opportunity’s total odometry was 45.16 km (28.06 miles) — a little more than a marathon. Its twin Spirit drove about 7.73 km.'],
+    ro_spirit: ['What happened to the Spirit rover in May 2009?',
+      ['It got stuck in soft soil and later became a stationary science platform', 'It was buried by a dust storm', 'It fell into a deep crater', 'It was hit by a meteorite'],
+      'Spirit became stuck in soft soil beside “Home Plate” on 1 May 2009. In January 2010 it became a stationary platform; it fell silent in March 2010 and NASA ended recovery efforts on 25 May 2011.'],
+    ro_zhurong: ['On which Martian plain did China’s Zhurong rover land in May 2021?',
+      ['Utopia Planitia', 'Jezero Crater', 'Gale Crater', 'Meridiani Planum'],
+      'Zhurong (Tianwen-1 mission) landed in southern Utopia Planitia. NASA’s HiRISE camera photographed the lander and the rover from orbit in June 2021.'],
+
+    eq_mer_power: ['What powered the twin rovers Spirit and Opportunity?',
+      ['Solar panels', 'A radioisotope generator', 'Fuel cells', 'A nuclear reactor'],
+      'Spirit and Opportunity ran on solar panels and batteries — which is why dust and the Martian winter were so dangerous for them.'],
+    eq_msl_power: ['What is the power source of the Curiosity rover?',
+      ['A radioisotope generator (MMRTG) using heat from plutonium-238 decay', 'Solar panels', 'Non-rechargeable batteries only', 'A small wind turbine'],
+      'Curiosity was the first NASA mission to carry an MMRTG, which turns heat from the natural decay of plutonium-238 into electricity. Perseverance uses the same type of generator.'],
+    eq_lrv_power: ['How was the Apollo Lunar Roving Vehicle powered?',
+      ['Two non-rechargeable silver-zinc batteries', 'Solar panels', 'A radioisotope generator', 'Fuel cells'],
+      'According to NASA’s NSSDCA, the rover ran on two 36-volt silver-zinc batteries that could not be recharged.'],
+    eq_lm_stage: ['Which part of the Apollo lunar module was left standing at the landing site and served as the launch platform for the return to orbit?',
+      ['The descent stage', 'The ascent stage', 'The command module', 'The service module'],
+      'The ascent stage lifted off from the descent stage, which stayed behind. Descent stages are still visible in orbital images — for example Antares at the Apollo 14 site.'],
+    eq_alsep_power: ['What powered the ALSEP science stations that Apollo 12–17 astronauts left on the Moon?',
+      ['SNAP-27 radioisotope thermoelectric generators', 'Solar panels', 'The lunar rover’s batteries', 'Fuel cells of the lunar module'],
+      'NASA lists the SNAP-27 RTG as the power source of ALSEP on Apollo 12, 14, 15, 16 and 17. The simpler Apollo 11 experiment package used solar cells.'],
+    eq_viking_rtg: ['What powered the Viking 1 and Viking 2 landers on Mars?',
+      ['SNAP-19 radioisotope generators', 'Solar panels', 'Fuel cells', 'Batteries only'],
+      'Each Viking lander used SNAP-19 radioisotope thermoelectric generators. Designed for 90 days, the landers worked for about six and four years.'],
+
+    ab_lrv_count: ['How many Apollo Lunar Roving Vehicles were left on the Moon?',
+      ['3', '1', '6', '0'],
+      'Three rovers were driven on the Moon — on Apollo 15, 16 and 17 — and all were left behind. LRO images still show the Apollo 17 rover parked at its site.'],
+    ab_golf: ['Which astronaut hit golf balls on the Moon during Apollo 14 in February 1971?',
+      ['Alan Shepard', 'Neil Armstrong', 'Buzz Aldrin', 'Eugene Cernan'],
+      'Alan Shepard fixed a six-iron head to the handle of a sample-collection tool and hit two golf balls, which are still on the Moon.'],
+    ab_retro: ['Which Apollo equipment left on the Moon is still used by scientists today?',
+      ['Laser retroreflector arrays', 'The Lunar Roving Vehicles', 'The ALSEP seismometers', 'The Apollo 11 TV camera'],
+      'Apollo 11, 14 and 15 left arrays of prisms that reflect laser pulses back to Earth; observatories still use them to measure the Earth–Moon distance. The ALSEP stations were switched off in 1977.'],
+    ab_ingenuity: ['Why did the Ingenuity helicopter’s mission end in January 2024?',
+      ['One or more rotor blades were damaged during landing', 'A dust storm buried it', 'Its batteries froze', 'Perseverance drove over it'],
+      'Images from flight 72 on 18 January 2024 showed rotor-blade damage, so it could no longer fly. NASA announced the end of the mission on 25 January 2024; the helicopter remains on Mars.'],
+    ab_opp_rest: ['Where is the Opportunity rover’s final resting place?',
+      ['Perseverance Valley, on the rim of Endeavour Crater', 'Jezero Crater', 'Gale Crater', 'Gusev Crater'],
+      'Opportunity was driving down Perseverance Valley on the rim of Endeavour Crater when the 2018 dust storm ended its mission. The valley’s name is not related to the Perseverance rover.'],
+    ab_alsep_off: ['In what year were the ALSEP science stations on the Moon switched off?',
+      ['1977', '1972', '1983', '1990'],
+      'The stations were designed for about one year but worked for up to eight; Mission Control permanently shut them down on 30 September 1977.'],
+    ab_phoenix: ['What did 2010 orbital images suggest had happened to the Phoenix lander’s solar panels?',
+      ['They were damaged by the weight of winter ice', 'They were buried by a dust storm', 'They were jettisoned on purpose', 'They were knocked over by a rover'],
+      'Phoenix was not designed to survive the polar winter. A 2010 HiRISE image showed signs of severe ice damage; a build-up of carbon-dioxide ice had been expected to be able to bend or break the panels.'],
+
+    di_phx_water: ['What did NASA’s Phoenix lander confirm in a soil sample in 2008?',
+      ['Water (from ice) in the Martian soil', 'Lakes of liquid water on the surface', 'Fossil microbes', 'Living bacteria'],
+      'On 31 July 2008 NASA announced that Phoenix’s TEGA instrument had identified water in a heated soil sample from near the north polar region.'],
+    di_lcross: ['Which 2009 NASA mission crashed a spent rocket stage into Cabeus crater and detected water in the debris?',
+      ['LCROSS', 'GRAIL', 'LADEE', 'Clementine'],
+      'LCROSS and its Centaur upper stage hit Cabeus crater near the lunar south pole on 9 October 2009. On 13 November 2009 NASA announced that water had been found in the plume.'],
+    di_berries: ['The small spheres nicknamed “blueberries”, found by Opportunity, are rich in which mineral?',
+      ['Hematite', 'Olivine', 'Quartz', 'Halite'],
+      'In March 2004 the team reported that the spherules contain hematite, an iron oxide that usually forms in water — evidence of a wet past at Meridiani Planum.'],
+    di_ykb: ['What did Curiosity’s first drilled rock sample (Yellowknife Bay, 2013) reveal?',
+      ['Gale Crater once had conditions suitable for microbial life', 'Living microbes in the soil', 'Liquid water flowing today', 'Fossil shells'],
+      'The “John Klein” sample showed that the area was once the end of an ancient river system or an intermittently wet lakebed with chemistry favourable for microbes. That is a habitable environment, not evidence of life.'],
+    di_moxie: ['What did the MOXIE experiment on Perseverance produce on Mars?',
+      ['Oxygen from carbon dioxide in the atmosphere', 'Water from underground ice', 'Methane fuel', 'Nitrogen for plants'],
+      'MOXIE split oxygen from CO₂ molecules. Over 16 runs it made a total of 122 g of oxygen, demonstrating a technology future astronauts could use for breathing and rocket propellant.'],
+    di_quakes: ['What did the seismometers left by Apollo astronauts record?',
+      ['Moonquakes and meteoroid impacts', 'Active volcanic eruptions', 'Liquid water moving underground', 'Reversals of a global magnetic field'],
+      'The Apollo seismic network recorded deep and shallow moonquakes and hundreds of meteoroid impacts per year, which revealed the Moon’s layered interior.'],
+    di_genesis: ['The “Genesis Rock” collected on Apollo 15 is what type of rock?',
+      ['Anorthosite', 'Basalt', 'Granite', 'Sandstone'],
+      'Sample 15415 is an anorthosite — a piece of the Moon’s primordial crust, about 4 billion years old according to NASA.'],
+
+    ar_tracks_tf: ['True or false: astronaut footpaths and rover tracks at Apollo landing sites can be seen in images taken from lunar orbit.', null,
+      'True. In 2011 NASA’s Lunar Reconnaissance Orbiter photographed the Apollo 12, 14 and 17 sites from low altitude: foot trails, rover tracks and descent stages are visible.'],
+    ar_lro: ['Which spacecraft has photographed Apollo landing sites from lunar orbit, showing descent stages and astronaut tracks?',
+      ['Lunar Reconnaissance Orbiter (LRO)', 'LADEE', 'GRAIL', 'Clementine'],
+      'LRO’s narrow-angle cameras have imaged the Apollo sites many times, turning them into reference points for space archaeology.'],
+    ar_plaque: ['Where is the Apollo 11 commemorative plaque (“We came in peace for all mankind”)?',
+      ['On the ladder of the lunar module’s descent stage, still on the Moon', 'Inside the command module Columbia, on Earth', 'On the Lunar Roving Vehicle', 'Buried under the flag'],
+      'The stainless-steel plaque was attached to the ladder on a landing-gear strut of Eagle’s descent stage, which remained at Tranquility Base.'],
+    ar_hirise: ['Which camera has photographed landers such as Phoenix and Beagle 2 on the surface of Mars from orbit?',
+      ['HiRISE on Mars Reconnaissance Orbiter', 'LROC on Lunar Reconnaissance Orbiter', 'Mastcam-Z on Perseverance', 'The camera of Mariner 4'],
+      'HiRISE, the high-resolution camera on NASA’s Mars Reconnaissance Orbiter, imaged the damaged Phoenix lander in 2010 and found Beagle 2 in 2015.'],
+    ar_artemis: ['Which 2020 international document contains a section on preserving outer space heritage, including historic landing sites?',
+      ['The Artemis Accords', 'The Outer Space Treaty (1967)', 'The Moon Agreement (1979)', 'The Rescue Agreement (1968)'],
+      'Section 9 of the Artemis Accords, established in 2020 by NASA, the U.S. Department of State and seven other founding nations, is about preserving historically significant landing sites, artifacts and spacecraft. The Accords are a non-binding political commitment.'],
+    ar_surveyor3: ['Apollo 12 astronauts walked to which earlier robotic lander and brought parts of it back to Earth?',
+      ['Surveyor 3', 'Surveyor 1', 'Luna 9', 'Ranger 7'],
+      'Apollo 12 landed within walking distance of Surveyor 3, on the Moon since April 1967. Pete Conrad and Alan Bean removed its TV camera and other parts so scientists could study how hardware ages on the Moon.'],
+    ar_beagle2: ['Which lander, missing since its expected landing on 25 December 2003, was found in 2015 in orbital images with its solar panels only partly opened?',
+      ['Beagle 2', 'Mars Polar Lander', 'Schiaparelli', 'Mars 2'],
+      'The UK-led Beagle 2, carried by ESA’s Mars Express, was spotted by HiRISE. Only one to three of its four solar panels appear open, which likely blocked its radio antenna.']
+  };
+
+
+
+  /* ---------- flatten into window.I18N.dict (flat keys) ---------- */
+  var I = window.I18N = window.I18N || {};
+  I.dict = I.dict || {};
+  ['en'].forEach(function (lang) {
+    var d = I.dict[lang] = I.dict[lang] || {};
+    var src = Q[lang];
+    Object.keys(src).forEach(function (id) {
+      var row = src[id];
+      d['quiz.q.' + id] = row[0];
+      if (row[1]) { for (var i = 0; i < row[1].length; i++) d['quiz.q.' + id + '.o' + i] = row[1][i]; }
+      d['quiz.q.' + id + '.ex'] = row[2];
+    });
+  });
+})();
