@@ -48,6 +48,8 @@ To stop the server press **Ctrl + C** in the terminal.
 
 The same site is published with GitHub Pages: https://cartezteam.github.io/
 
+The promotional website is published with GitHub Pages: https://cartezteam.github.io/cartezteampromo.github.io/
+
 ### Troubleshooting
 
 | Problem | Fix |
